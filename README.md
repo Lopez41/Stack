@@ -1,2 +1,1 @@
-# stack-starter
-Starter code for creating a simple stack.
+Create a stack that will work with a struct data type
