@@ -1,7 +1,11 @@
-/*
- * Your comment header here
- * modify this file as needed to complete the assignment
- */
+/*******************
+*coding assignment 05: int stack
+*Name: Adrian Lopez
+*Date: 06/19/23
+*Status:in progress
+*Language: C++
+*File: stack.h
+*******************/
 
 #ifndef STACK_H
 #define STACK_H
@@ -16,11 +20,22 @@
 class Stack {
 
 public:
-
+    Stack(int size);
+    //deconstructor
+    ~Stack();
+   
     /* 
      * write all your public method prototypes here
      * this includes you constructor and destructor
      */
+    //method to pop data off the stack
+    Data pop();
+    //method to peek at the top of the stack
+    Data peek();
+    //method to push data onto stack
+    void push(Data);
+    //method to check is stack is empty
+    bool isempty();
     
 private:
 
