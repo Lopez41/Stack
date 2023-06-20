@@ -9,7 +9,9 @@
 
 #ifndef STACK_H
 #define STACK_H
-
+#define MAX 10
+using std::cout;
+using std::endl;
 /*
  * there are no other includes here because they are not needed.
  * if you do need other things included, they would go here
@@ -20,7 +22,7 @@
 class Stack {
 
 public:
-    Stack(int size);
+    Stack(MAX);
     //deconstructor
     ~Stack();
    
@@ -29,13 +31,15 @@ public:
      * this includes you constructor and destructor
      */
     //method to pop data off the stack
-    Data pop();
+    bool pop(Data* data);
     //method to peek at the top of the stack
-    Data peek();
+    bool peek(Data* data);
     //method to push data onto stack
-    void push(Data);
+    bool push(int id,string*data);
     //method to check is stack is empty
     bool isempty();
+   // get the size of stack
+    int getSize():
     
 private:
 
