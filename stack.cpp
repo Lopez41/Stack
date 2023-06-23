@@ -70,6 +70,7 @@ bool Stack::isEmpty()
 
 int Stack::getSize()
 {
+    return(size);
 }// end of getSize()
 
 bool Stack::peek(Data* )
