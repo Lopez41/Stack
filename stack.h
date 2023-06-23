@@ -6,40 +6,38 @@
 *Language: C++
 *File: stack.h
 *******************/
-
 #ifndef STACK_H
 #define STACK_H
-#define MAX 10
+#include "data.h"
+#include <iostream>
+#include <stdexcept>
 using std::cout;
 using std::endl;
 /*
  * there are no other includes here because they are not needed.
  * if you do need other things included, they would go here
  */
-
-#include "data.h"
-
-class Stack {
+class Stack 
+{
 
 public:
-    Stack(MAX);
-    //deconstructor
-    ~Stack();
-   
-    /* 
+   /* 
      * write all your public method prototypes here
      * this includes you constructor and destructor
      */
+    Stack(int Stacksize);
+    //deconstructor
+    ~Stack();
     //method to pop data off the stack
-    bool pop(Data* data);
+    bool pop(Data* poppedData);
     //method to peek at the top of the stack
-    bool peek(Data* data);
+    bool peek(Data* topData);
     //method to push data onto stack
-    bool push(int id,string*data);
+    bool push(int id,string*);
     //method to check is stack is empty
-    bool isempty();
+    bool isEmpty();
    // get the size of stack
-    int getSize():
+    int getSize();
     
 private:
 
