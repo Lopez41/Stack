@@ -1,7 +1,11 @@
-/*
- * your header here
- * 
- */
+/*******************
+*coding assignment 05: int stack
+*Name: Adrian Lopez
+*Date: 06/19/23
+*Status:in progress
+*Language: C++
+*File: main.cpp
+**********************/
 
 #include "main.h"
 
