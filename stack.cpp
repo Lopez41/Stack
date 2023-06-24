@@ -54,9 +54,22 @@
 
 
 // function to remove data from the top of the stack
-bool Stack::pop(Data*)
+bool Stack::pop(Data* poppedData) 
 {   
-  
+  bool remove = false;
+
+        if (top >= 0) {
+            poppedData = stack[top];  // Copy data from the top of the stack
+            delete stack[top];  // Deallocate memory for the top Data struct
+            top--;
+
+            remove = true;
+        } else {
+            poppedData->id = -1;
+            poppedData->information = "";
+        }
+
+        return remove;
     
 }// end of int Stack:: pop(Dta *data)
 
