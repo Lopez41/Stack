@@ -16,7 +16,9 @@
 #include <iostream>   /* cout, endl */
 #include <string>     /* string */
 #include "functions.h"
-
+#include "stack.h"
+using std::cout;
+using std::endl;
 /*
  * additional directives here
  * 

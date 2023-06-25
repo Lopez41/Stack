@@ -25,7 +25,7 @@ public:
      * write all your public method prototypes here
      * this includes you constructor and destructor
      */
-    Stack(int Stacksize);
+    Stack(int stackSize);
     //deconstructor
     ~Stack();
     //method to pop data off the stack
