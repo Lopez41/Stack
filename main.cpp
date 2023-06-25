@@ -9,7 +9,8 @@
 
 #include "main.h"
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv) 
+{
     // here for the rand_string() function
     // if you don't use it, get rid of this
     srand(time(NULL));
@@ -25,6 +26,23 @@ int main(int argc, char **argv) {
      * and you may not use exit() or anything like that.
      * ***************************************************************/
     
+    cout<<"/n Testing command line" << endl;
+    if (argc != 2) 
+    {
+        cout << "Please enter a single parameter in the command line representing an integer." << endl;
+        return 1;
+    }
+
+ int stackSize = 0;
+    try {
+        stackSize = std::stoi(argv[1]);
+    } 
+    catch (...)
+     {
+        cout << "Error: Stack size must be an integer." <<endl;
+        return 1;
+    }
+
     /* ***************************************************************
      * Use the number passed in from the command line and declare a stack
      * that uses that number as the size of the stack. NOTE: Make sure
@@ -39,6 +57,10 @@ int main(int argc, char **argv) {
      * pre-defined default value. This will be tested during grading.
      * ***************************************************************/
 
+
+    Stack stack1(stackSize);
+    cout << "Stack size: " << stack1.getSize() <<endl;
+
     
     /* ***************************************************************
      * Throughly test your stack. You must perform an exhaustive series
@@ -50,27 +72,27 @@ int main(int argc, char **argv) {
      * strings for string. There is a string generator made for you in the
      * functions module. You are free to use it or make your own.
      * ***************************************************************/
+    
+ 
+
+
+
 
     /* ***************************************************************
      * Below is some sample code for the random string function. It's
      * only here to demonstrate the function. DELETE it once you study
      * it and understand it and can use it yourself in your code.
      * ***************************************************************/
-    
-    // make 20 random strings, store them, display them
+   // make 20 random strings, store them, display them
     std::string strtemp;
     for(int i=0; i<20; i++){
         rand_string(&strtemp);
         std::cout << strtemp << std::endl;
     }
-    
-    /* ***************************************************************
-     * Your code will be tested by applying your stack to a custom main
-     * designed to break your code. If it can be broken, you risk a
-     * substantially reduced grade, up to and including a zero.
-     * ***************************************************************/
+    return 0;
+}
     
     // WHEN YOU SUBMIT, DELETE ALL THESE INSTRUCTIONALCOMMENTS
     
-    return 0;
-}
+    //return 0;
+
