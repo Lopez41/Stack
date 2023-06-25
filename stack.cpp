@@ -14,42 +14,44 @@
  */
  Stack::Stack(int stackSize)
  {
-    
-    if (stackSize < 2)
+    if (stackSize < 2) 
     {
         size = 10;
-    }
-    else
+    } else 
     {
-    size = stackSize;
-
+        size = stackSize;
+    }
     stack = new Data*[size];
     top = -1;
-    }
  }
 
  Stack::~Stack()
  {
- 
-}
+   for (int i = 0; i <= top; i++) 
+   {
+        delete stack[i];  // Deallocate memory for each Data struct
+    }
+    delete[] stack;  // Deallocate the stack array
+ }
 
- bool Stack::push(int id,string* info)
+
+ bool Stack::push(int id, string* info)
 { 
     bool inserted = false;
 
-        if (top + 1 < size && id > 0 && !info->empty()) 
-        {
-            Data* newData = new Data;  // Dynamically create a new Data struct
-            newData->id = id;
-            newData->information = *info;
+    if (top + 1 < size && id > 0 && !info->empty()) 
+    {
+        Data* newData = new Data;  // Dynamically create a new Data struct
+        newData->id = id;
+        newData->information = *info;
 
-            top++;
-            stack[top] = newData;
+        top++;
+        stack[top] = newData;
 
-            inserted = true;
-        }
+        inserted = true;
+    }
 
-        return inserted;
+    return inserted;
 }// bool Stack::push(int id,string*data)
 
 
@@ -58,18 +60,21 @@ bool Stack::pop(Data* poppedData)
 {   
   bool remove = false;
 
-        if (top >= 0) {
-            poppedData = stack[top];  // Copy data from the top of the stack
-            delete stack[top];  // Deallocate memory for the top Data struct
-            top--;
+    if (top >= 0) 
+    {
+        * poppedData = *stack[top];  // Copy data from the top of the stack
+        delete stack[top];  // Deallocate memory for the top Data struct
+        top--;
 
-            remove = true;
-        } else {
-            poppedData->id = -1;
-            poppedData->information = "";
-        }
+        remove = true;
+    }
+     else 
+    {
+        poppedData->id = -1;
+        poppedData->information = "";
+    }
 
-        return remove;
+    return remove;
     
 }// end of int Stack:: pop(Dta *data)
 
@@ -83,12 +88,22 @@ bool Stack::isEmpty()
 
 int Stack::getSize()
 {
-    return(size);
+    return size;
 }// end of getSize()
 
-bool Stack::peek(Data* )
+bool Stack::peek(Data* topData)
 {
- 
+    bool peeked = false;
+
+    if (top >= 0){
+        *topData = *stack[top];  // Copy data from the top of the stack
+        peeked = true;
+    } else {
+        topData->id = -1;
+        topData->information = "";
+    }
+
+    return peeked;
 }//end of int Stack::peek(Data* data)
 
 
