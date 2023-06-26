@@ -36,8 +36,7 @@ int main(int argc, char **argv)
  int stackSize = 0;
     try {
         stackSize = std::stoi(argv[1]);
-    } 
-    catch (...)
+    } catch (...)
      {
         cout << "Error: Stack size must be an integer." <<endl;
         return 1;
@@ -73,7 +72,71 @@ int main(int argc, char **argv)
      * functions module. You are free to use it or make your own.
      * ***************************************************************/
     
- 
+  // PerforM additional error checking or tests on the stack
+
+
+    // Test Case 2: Push elements into the stack
+    string info1 = "Data 1";
+    string info2 = "Data 2";
+    string info3 = "Data 3";
+    string info4 = "Data 4";
+    string info5 = "Data 5";
+    string info6 = "Data 6";
+    
+
+    stack1.push(1, &info1);
+    stack1.push(2, &info2);
+    stack1.push(3, &info3);
+    stack1.push(4, &info4);
+    stack1.push(5, &info5);
+
+    // Test Case 3: Try pushing into a full stack
+    if (stack1.push(6, &info6)== true )
+    {
+        cout << "error should not have been inserted" << endl;
+        return 1;
+    }
+    
+    // Test Case 4: Peek the top element
+    Data topData;
+    if (stack1.peek(&topData)) 
+    {
+        cout << "Peeked element: " << topData.id << ", " << topData.information <<endl;
+    } else 
+    {
+        cout << "Stack is empty!" << endl;
+    }
+     cout << "Popping elements from the stack:" << endl;
+
+    // Test Case 5: Pop elements from the stack
+    Data poppedData;
+    while (stack1.pop(&poppedData))
+     {
+        cout << "Popped element: " << poppedData.id << ", " << poppedData.information << endl;
+    }
+
+    // Test Case 6: Check if the stack is empty
+    if (stack1.isEmpty()== false)
+    {    cout << "error: stack is not empty, should be empty. "<< endl;
+        return 1;
+    }
+
+    // Test Case 7: Create a stack with size 2 (minimum size)
+    Stack stack2(2);
+    cout << "Stack size: " << stack2.getSize() << endl;
+    
+    if (stack2.isEmpty()== false)
+     {  
+         cout << "error is empty should return true into stack "<< endl;
+        return 1;
+    }
+    // Test Case 8: Push an element into the stack
+    string info7 = "Data 7";
+    stack2.push(7, &info7);
+
+    // Test Case 9: Try pushing another element into a full stack
+    string info8 = "Data 8";
+    stack2.push(8, &info8);
 
 
 
@@ -83,14 +146,14 @@ int main(int argc, char **argv)
      * only here to demonstrate the function. DELETE it once you study
      * it and understand it and can use it yourself in your code.
      * ***************************************************************/
-   // make 20 random strings, store them, display them
-    std::string strtemp;
+      std::string strtemp;
     for(int i=0; i<20; i++){
         rand_string(&strtemp);
         std::cout << strtemp << std::endl;
     }
     return 0;
 }
+
     
     // WHEN YOU SUBMIT, DELETE ALL THESE INSTRUCTIONALCOMMENTS
     
