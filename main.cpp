@@ -29,7 +29,7 @@ int main(int argc, char **argv)
     cout<<"/n Testing command line" << endl;
     if (argc != 2) 
     {
-        cout << "Please enter a single parameter in the command line representing an integer." << endl;
+        cout << "Please enter a single parameter at the command line representing an integer." << endl;
         return 1;
     }
 
@@ -75,7 +75,7 @@ int main(int argc, char **argv)
   // PerforM additional error checking or tests on the stack
 
 
-    // Test Case 2: Push elements into the stack
+    // Test Case 1: Push elements into the stack
     string info1 = "Data 1";
     string info2 = "Data 2";
     string info3 = "Data 3";
@@ -90,14 +90,14 @@ int main(int argc, char **argv)
     stack1.push(4, &info4);
     stack1.push(5, &info5);
 
-    // Test Case 3: Try pushing into a full stack
+    // Test Case 2: Try pushing into a full stack
     if (stack1.push(6, &info6)== true )
     {
         cout << "error should not have been inserted" << endl;
         return 1;
     }
     
-    // Test Case 4: Peek the top element
+    // Test Case 3: Peek the top element
     Data topData;
     if (stack1.peek(&topData)) 
     {
@@ -108,20 +108,20 @@ int main(int argc, char **argv)
     }
      cout << "Popping elements from the stack:" << endl;
 
-    // Test Case 5: Pop elements from the stack
+    // Test Case 4: Pop elements from the stack
     Data poppedData;
     while (stack1.pop(&poppedData))
      {
         cout << "Popped element: " << poppedData.id << ", " << poppedData.information << endl;
     }
 
-    // Test Case 6: Check if the stack is empty
+    // Test Case 5: Check if the stack is empty
     if (stack1.isEmpty()== false)
     {    cout << "error: stack is not empty, should be empty. "<< endl;
         return 1;
     }
 
-    // Test Case 7: Create a stack with size 2 (minimum size)
+    // Test Case 6: Create a stack with size 2 (minimum size)
     Stack stack2(2);
     cout << "Stack size: " << stack2.getSize() << endl;
     
@@ -130,11 +130,11 @@ int main(int argc, char **argv)
          cout << "error is empty should return true into stack "<< endl;
         return 1;
     }
-    // Test Case 8: Push an element into the stack
+    // Test Case 7: Push an element into the stack
     string info7 = "Data 7";
     stack2.push(7, &info7);
 
-    // Test Case 9: Try pushing another element into a full stack
+    // Test Case 8: Try pushing another element into a full stack
     string info8 = "Data 8";
     stack2.push(8, &info8);
 
@@ -146,14 +146,33 @@ int main(int argc, char **argv)
      * only here to demonstrate the function. DELETE it once you study
      * it and understand it and can use it yourself in your code.
      * ***************************************************************/
-      std::string strtemp;
-    for(int i=0; i<20; i++){
-        rand_string(&strtemp);
-        std::cout << strtemp << std::endl;
+    cout << "\n--------------------------------"<< endl;
+    cout << "Testing Random id and string" << endl;
+    cout << "---------------------------------" << endl;
+
+      for (int i = 0; i < stackSize; i++) 
+      {
+        int id = rand() % 100;  // Generate random id (0-99)
+        string info;
+        rand_string(&info);  
+    // Display the ID and string
+    cout << "Random ID: " << id << endl;
+    cout << "Random String: " << info << endl;
+
+    // Push the data to the stack
+    if (stack1.push(id, &info)) 
+    {
+        cout << "Data pushed to the stack: ID = " << id << ", Info = " << info << endl;
+    } else 
+    {
+        cout << "Failed to push data to the stack: ID = " << id << ", Info = " << info << endl;
+        return 1;
+    }
+      
+
     }
     return 0;
 }
-
     
     // WHEN YOU SUBMIT, DELETE ALL THESE INSTRUCTIONALCOMMENTS
     
