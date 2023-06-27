@@ -14,9 +14,9 @@
  */
  Stack::Stack(int stackSize)
  {
-    if (stackSize < 2) 
+    if (stackSize < MIN_STACK) 
     {
-        size = 10;
+        size = DEFAULT_MAX;
     } else 
     {
         size = stackSize;
